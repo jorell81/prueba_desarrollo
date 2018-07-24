@@ -1,0 +1,15 @@
+<body ng-app="app">
+<div>
+    <div id="message"></div>
+    <div class="geo">
+        <input type="text" id="newlocation" name="coord" value="" size="40" ng-model="newcoord" />
+        <input type="text" id="location" name="location" value="" size="40" ng-model="georef" placeholder="Digite Direccion"/>
+        <!-- Botón para inciar la georreferenciación -->
+        <input type="button" id="search" name="search" value="Buscar" ng-click="geocodeAddress()" />
+    </div>
+    <div id="googleMap"></div>
+
+</div>
+
+
+

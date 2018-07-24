@@ -1,0 +1,14 @@
+#googleMap{
+    height:567px;
+    width:100%;
+    /*box-shadow: 3px 3px 10px gray;*/
+}
+
+.geo{
+    position: absolute;
+    top: 74px;
+    z-index: 9;
+    left: 856px;
+    /* width: 260px; */
+    height: 0px;
+}
