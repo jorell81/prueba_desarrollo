@@ -26,7 +26,7 @@ app.config(['$routeProvider',function($routeProvider) {
 
 app.controller("Pagina1Controller", ['$scope',function($scope) {
 
-    $scope.nombre = "william"
+    $scope.nombre = "william";
     $scope.mensaje="Texto cargado desde el controlador Pagina1Controller";
 
 }]);
@@ -35,7 +35,7 @@ app.controller("Pagina2Controller", ["$scope",function($scope) {
         $scope.highlighters = [];
         $scope.gMap = null;
         var myLatLng = {lat: 4.656163351, lng: -74.10041651};
-        var winInfo = new google.maps.InfoWindow();
+        //var winInfo = new google.maps.InfoWindow();
 
         var googleMapOption = {
             zoom: 14,
@@ -62,7 +62,7 @@ app.controller("Pagina2Controller", ["$scope",function($scope) {
                         position: results[0].geometry.location,
                         draggable: true
                     });
-                    $scope.marker.addListener( 'dragend', function (event){
+                    $scope.marker.addListener( 'dragend', function (){
                         //escribimos las coordenadas de la posicion actual del marcador dentro del input #newlocation
                         document.getElementById("newlocation").value = this.getPosition().lat()+","+ this.getPosition().lng();
                     });
@@ -81,8 +81,23 @@ app.controller("Pagina3Controller", ["$scope","$http",function($scope,$http) {
 
     $http.get("http://l-lin.github.io/angular-datatables/archives/data.json").then(function (response) {
         $scope.data = response.data;
-        $('#example').DataTable();
-        console.log($scope.data);
+        var a = response.data;
+        console.log("a",a);
+        /*$('#example').DataTable( {
+            "ajax": {
+                "url":"http://l-lin.github.io/angular-datatables/archives/data.json",
+                "dataSrc": ""
+            },
+            "columns": [
+                { "data": 'id' },
+                { "data": 'firstName' },
+                { "data": 'lastName' }
+            ]
+        } );*/
+        setTimeout(function () {
+            $('#example').DataTable();
+        },100)
+
     },function(response) {
             console.log(response);
     });
